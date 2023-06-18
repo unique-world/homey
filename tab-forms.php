@@ -30,13 +30,14 @@
                             <label for="size">Size:</label> <br>
                             <input type="text" id="size" name="size" placeholder="Enter size" class="regular-text"><br><br>
                             <label for="rooms">Number of Rooms:</label><br>
-                            <input type="text" id="rooms" name="rooms" placeholder="Enter number of rooms" class="regular-text"><br>
+                            <input type="text" id="rooms" name="rooms" placeholder="Enter number of rooms" class="regular-text"><br><br>
                             <label for="guests">Affiliated booking links</label><br>
                                 <input type="text" id="guests" name="guests" placeholder="Enter Affiliated booking links" class="regular-text"  ><br><br>
+                                
+                   
           </div>
 
-          <div id="tab_info" class="tab-pane active" style="width:45%;padding:10px 10px 0 0;float:right; margin-right:20px;">
-                    
+          <div>
                     <label for="guests">Number of Guests:</label><br>
                     <input type="text" id="guests" name="guests" placeholder="Enter number of guests" class="regular-text"><br><br>
                     <label for="bathrooms">Number of Bathrooms:</label><br>
@@ -44,18 +45,16 @@
                     <label for="unit">Unit of Measure:</label><br>
                     <input type="text" id="unit" name="unit" placeholder="Enter unit of measure" class="regular-text"><br><br>
                     <label class="feature-label">Make this Listing as featured?</label>
-                        <label for="featured-yes">
-                        <input type="radio" id="featured-yes" name="featured" value="yes">
-                        Yes
-                        </label>
-                        <label for="featured-no">
-                        <input type="radio" id="featured-no" name="featured" value="no">
-                        No
-         </label> <br>
+                    <label for="featured-yes">
+                    <input type="radio" id="featured-yes" name="featured" value="yes">
+                    Yes    </label>
+                    <label for="featured-no">
+                    <input type="radio" id="featured-no" name="featured" value="no">  No</label> <br>      
+                  
 
 
 </div>
-           
+
 
 
 
@@ -90,11 +89,24 @@
                         </select> <br><br>
             <hr><br><label> Long-Term Pricing </label> <hr>
             
-        <label> Weekend-7 + nights</label><br>
-        <input type=text class="regular-text" placeholder="Enter the price for a single day">
+                        <label> Weekend-7 + nights</label><br>
+                        <input type=text class="regular-text" placeholder="Enter the price for a single day">
 
-        <label style="margin-left:10%;"> Monthly-30 + nights</label> 
-        <input type=text class="regular-text" placeholder="Enter the price for a single day">
+                        <label style="margin-left:20%;"> Monthly-30 + nights</label> 
+                        <input type=text class="regular-text" placeholder="Enter the price for a single day" >
+
+                        <hr><br><label>Additional Cost</label> <hr>
+                        <label class="feature-label">Allow additional Guest</label> <br>
+                        <label for="featured-yes">
+                        <input type="radio" id="featured-yes" name="featured" value="yes">
+                        Yes
+                        </label>
+                        <label for="featured-no">
+                        <input type="radio" id="featured-no" name="featured" value="no"> No </label> 
+
+                        <label class="feature-label" style="margin-left:43%;">Additional Guest?</label> 
+                        <input type=text class="regular-text" placeholder="Enter the price for one add" style="margin-left:2%;">
+
             </div>
 
 
