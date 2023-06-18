@@ -64,7 +64,13 @@
             <div id="tab_pricing" class="tab-pane">
                 
             <label for="booking" class="feature-label">Booking type:</label><br>
-             <input type="text" id="booking" name="bookingtype" class="regular-text" placeholder="Enter booking type"><br><br>
+            <select id="booking" name="bookingtype" class="regular-text">
+                            <option value="Nightly">Nightly</option>
+                            <option value="Daily">daily</option>
+                            <option value="weekly">weekly/option>
+                            <!-- Add more options as needed -->
+                        </select> <br>
+
              
              <label for="price" class="feature-label">Price:</label><br>
              <input type="text" id="price" name="price" class="regular-text" placeholder="Enter price"><br><br>
@@ -74,6 +80,21 @@
              
              <label for="weekneds" class="feature-label">Weekends:</label><br>
              <input type="text" id="price" name="weekneds" class="regular-text" placeholder="Enter the unit price for a single day"><br><br>
+            
+             <label for="weekendprice" class="feature-label">Select the days to apply weekend pricing</label><br>
+            <select id="weekendprice" name="weekendprice" class="regular-text">
+                            <option value="Nightly">Saturday and Sunday</option>
+                            <option value="Daily">Firday and Saturday</option>
+                            <option value="weekly">weekly/option>
+                            <!-- Add more options as needed -->
+                        </select> <br><br>
+            <hr><br><label> Long-Term Pricing </label> <hr>
+            
+        <label> Weekend-7 + nights</label><br>
+        <input type=text class="regular-text" placeholder="Enter the price for a single day">
+
+        <label style="margin-left:10%;"> Monthly-30 + nights</label> 
+        <input type=text class="regular-text" placeholder="Enter the price for a single day">
             </div>
 
 
@@ -116,4 +137,4 @@
 </script>
 
 
-<?php echo "Daler" ?>
+//<?php echo "Daler" ?>
