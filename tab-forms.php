@@ -113,9 +113,9 @@
             $(tabId).show();
         });
 
-        // Show the content of the active tab on page load
-        var activeTabId = $(".tab-list li.active a").attr("href");
-        $(activeTabId).show();
+        // Hide all tab content except for the active tab on page load
+        $(".tab-content .tab-pane").not(".active").hide();
     });
 </script>
+
 
