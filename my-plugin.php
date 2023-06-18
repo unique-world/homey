@@ -85,7 +85,7 @@ function listings_page()
             delete_listing($listing_id);
         }
     }
-    include plugin_dir_path(__FILE__) . 'tab-forms.php';
+
     // Step 3: Render the form HTML
     ?>
 
@@ -98,7 +98,7 @@ function listings_page()
 
 
        
-
+      <?php  include plugin_dir_path(__FILE__) . 'tab-forms.php'; ?>
 
       <form id="custom-form" method="POST" action="<?php echo esc_url(admin_url('admin.php?page=listings')); ?>">
                             
@@ -227,12 +227,3 @@ function delete_listing($listing_id)
     );
 }
 
-
-function enqueue_tab_scripts() {
-    wp_enqueue_script('jquery-ui-tabs');
-}
-add_action('wp_enqueue_scripts', 'enqueue_tab_scripts');
-function enqueue_custom_script() {
-    wp_enqueue_script('my-form-plugin-script', plugins_url('js/my-form-plugin.js', __FILE__), array('jquery'), '1.0', true);
-}
-add_action('wp_enqueue_scripts', 'enqueue_custom_script');

@@ -1,0 +1,27 @@
+/* CSS for horizontal tab navigation */
+.tab-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  
+  .tab-list li {
+    float: left;
+  }
+  
+  .tab-list li a {
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #000;
+    background-color: #f1f1f1;
+  }
+  
+  .tab-list li a:hover {
+    background-color: #ddd;
+  }
+  
+  .tab-list li.active a {
+    background-color: #ccc;
+  }
