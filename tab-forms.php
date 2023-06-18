@@ -65,7 +65,15 @@
                 
             <label for="booking" class="feature-label">Booking type:</label><br>
              <input type="text" id="booking" name="bookingtype" class="regular-text" placeholder="Enter booking type"><br><br>
-                       
+             
+             <label for="price" class="feature-label">Price:</label><br>
+             <input type="text" id="price" name="price" class="regular-text" placeholder="Enter price"><br><br>
+            
+             <label for="booking" class="feature-label">After price label </label></Label>:</label><br>
+             <input type="text" id="booking" name="bookingtype" class="regular-text" placeholder="Enter after price label"><br><br>
+             
+             <label for="weekneds" class="feature-label">Weekends:</label><br>
+             <input type="text" id="price" name="weekneds" class="regular-text" placeholder="Enter the unit price for a single day"><br><br>
             </div>
 
 
