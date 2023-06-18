@@ -19,9 +19,13 @@
   }
   
   .tab-list li a:hover {
-    background-color: #ddd;
+    background-color: #b63131;
   }
   
   .tab-list li.active a {
     background-color: #ccc;
   }
+ .regular-text {
+
+    width: 18%;
+}
