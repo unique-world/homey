@@ -53,7 +53,7 @@ function listings_page()
             $numberOfguest = sanitize_text_field($_POST['guests']);
             $numberOfbathrooms = sanitize_text_field($_POST['bathrooms']);
             $unitOfmeasure = sanitize_text_field($_POST['unit']);
-            //$listingAsfeature = sanitize_text_field($_POST['featured']);
+            $listingAsfeature = sanitize_text_field($_POST['featured']);
            
 
 
@@ -65,7 +65,7 @@ function listings_page()
                 'numberOfguest' => $numberOfguest,
                 'numberOfbathrooms' => $numberOfbathrooms,
                 'unitOfmeasure' => $unitOfmeasure,
-              //  'listingAsfeature' => $listingAsfeature,
+                'listingAsfeature' => $listingAsfeature,
                 'affiliatedBookinglink' => $affiliatedBookinglink
 
 
@@ -197,7 +197,7 @@ function insert_listing($data)
     $wpdb->insert(
         $table_name,
         $data,
-        array('%s', '%s', '%f','%s', '%s', '%s', '%s', '%f')
+        array('%s', '%s', '%f','%s', '%s', '%s', '%s', '%s')
     );
 }
 

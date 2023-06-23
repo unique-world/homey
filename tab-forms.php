@@ -44,10 +44,10 @@
 
                 <label class="feature-label">Make this Listing as featured?</label><br>
                         <label for="featured-yes">
-                            <input type="radio" id="featured-yes" name="featured" value="show"> Yes
+                            <input type="radio" id="featured-yes" name="featured" value="yes"> Yes
                         </label>
                         <label for="featured-no">
-                            <input type="radio" id="featured-no" name="featured" value="hide"> No
+                            <input type="radio" id="featured-no" name="featured" value="no"> No
                         </label>
                         <br>
             </div>
