@@ -29,3 +29,16 @@
 
     width: 18%;
 }
+/* Hide the submenu by default */
+#toplevel_page_listings .wp-submenu {
+  display: none;
+}
+
+/* Show the submenu on hover */
+#toplevel_page_listings:hover .wp-submenu {
+  display: block;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 9999;
+}

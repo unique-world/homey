@@ -16,3 +16,15 @@ jQuery(document).ready(function($) {
         $(tabId).show();
     });
 });
+
+jQuery(document).ready(function($) {
+    // Enable hover behavior for the main menu item
+    $('#toplevel_page_listings').hover(
+        function() {
+            $(this).addClass('opensub');
+        },
+        function() {
+            $(this).removeClass('opensub');
+        }
+    );
+});

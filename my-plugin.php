@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: My Plugin
+Plugin Name: Homey_Practice
 Description: This is a sample plugin.
 Version: 1.0.0
 Author: Your Name
@@ -14,9 +14,15 @@ function my_plugin_create_table()
 
     $sql = "CREATE TABLE $table_name (
      id INT(11) NOT NULL AUTO_INCREMENT,
-        title VARCHAR(255) NOT NULL,
-        description TEXT,
-        price DECIMAL(10,2) NOT NULL,
+     numberOfbedrooms VARCHAR(255) NOT NULL,
+        numberofbeds TEXT,
+        size DECIMAL(10,2) NOT NULL,
+        numberOfrooms VARCHAR(255) NOT NULL,
+        numberOfguest VARCHAR(255) NOT NULL,
+        numberOfbathrooms VARCHAR(255) NOT NULL,
+        unitOfmeasure VARCHAR(255) NOT NULL,
+        listingAsfeature enum(('yes', 'no') NOT NULL,
+        affiliatedBookinglink TEXT NOT NULL,
         PRIMARY KEY (id)
 
     ) $charset_collate;";
@@ -27,34 +33,42 @@ function my_plugin_create_table()
 
 register_activation_hook(__FILE__, 'my_plugin_create_table');
 
-// Step 1: Add a new menu item to the admin panel
-add_action('admin_menu', 'listings_menu');
-function listings_menu()
-{
-    add_menu_page(
-        'Listings',
-        'Listings',
-        'manage_options',
-        'listings',
-        'listings_page'
-    );
-}
+// including files to show listings and their functions
+ include plugin_dir_path(__FILE__) . 'sub_menu.php'; 
+
+
 
 // Step 2: Create the form HTML and handle form submissions
 function listings_page()
 {
     if (isset($_POST['submit'])) {
         // Form submitted, handle CRUD operations here
-        if ($_POST['submit'] === 'Add Listing') {
+        if ($_POST['submit'] === 'Add Info') {
             // Handle adding a new listing
-            $title = sanitize_text_field($_POST['title']);
-            $description = sanitize_text_field($_POST['description']);
-            $price = floatval($_POST['price']);
+            $numberOfbedrooms = sanitize_text_field($_POST['bedrooms']);
+            $numberofbeds = sanitize_text_field($_POST['beds']);
+            $size = floatval($_POST['size']);
+            $numberOfrooms = sanitize_text_field($_POST['rooms']);
+            $affiliatedBookinglink = sanitize_text_field($_POST['bookinglink']);
+            $numberOfguest = sanitize_text_field($_POST['guests']);
+            $numberOfbathrooms = sanitize_text_field($_POST['bathrooms']);
+            $unitOfmeasure = sanitize_text_field($_POST['unit']);
+            //$listingAsfeature = sanitize_text_field($_POST['featured']);
+           
+
 
             $data = array(
-                'title' => $title,
-                'description' => $description,
-                'price' => $price
+                'numberOfbedrooms' => $numberOfbedrooms,
+                'numberofbeds' => $numberofbeds,
+                'size' => $size,
+                'numberOfrooms' => $numberOfrooms,
+                'numberOfguest' => $numberOfguest,
+                'numberOfbathrooms' => $numberOfbathrooms,
+                'unitOfmeasure' => $unitOfmeasure,
+              //  'listingAsfeature' => $listingAsfeature,
+                'affiliatedBookinglink' => $affiliatedBookinglink
+
+
             );
 
             insert_listing($data);
@@ -98,29 +112,32 @@ function listings_page()
 
 
        
-      <?php  include plugin_dir_path(__FILE__) . 'tab-forms.php'; ?>
+     
 
       <form id="custom-form" method="POST" action="<?php echo esc_url(admin_url('admin.php?page=listings')); ?>">
-                            
+
+
+                        <?php  include plugin_dir_path(__FILE__) . 'tab-forms.php'; ?> 
+                    <!--        
                           <div class="form-field">
                            
-                            <label for="title" style="display: block; margin-bottom: 5px;"><?php _e( 'Title:', 'text-domain' ); ?></label>
+                            <label for="title" style="display: block; margin-bottom: 5px;"><?php _e( 'numberOfrooms:', 'text-domain' ); ?></label>
                             <input type="text" id="title" name="title" class="regular-text" style="width: 100%; padding: 5px;">
                           </div>
 
                           <div class="form-field">
-                            <label for="description" style="display: block; margin-bottom: 5px;"><?php _e( 'Description:', 'text-domain' ); ?></label>
+                            <label for="description" style="display: block; margin-bottom: 5px;"><?php _e( 'numberOfbedrooms:', 'text-domain' ); ?></label>
                             <textarea id="description" name="description" class="large-text" style="width: 100%; padding: 5px;"></textarea>
                           </div>
 
                           <div class="form-field">
-                            <label for="price" style="display: block; margin-bottom: 5px;"><?php _e( 'Price:', 'text-domain' ); ?></label>
+                            <label for="price" style="display: block; margin-bottom: 5px;"><?php _e( 'numberOfbeds:', 'text-domain' ); ?></label>
                             <input type="number" id="price" name="price" step="0.01" class="regular-text" style="width: 100%; padding: 5px;">
                           </div>
                       
                         <input type="submit" name="submit" value="Add Listing" class="button button-primary" style="padding: 5px 10px;">
 
-                        </form>
+                    -->
 
 
         <h2>Manage Listings</h2>
@@ -133,10 +150,10 @@ function listings_page()
             <table class="wp-list-table widefat fixed striped">
                 <thead>
                 <tr>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                    <th>Actions</th>
+                    <th>Number of Rooms</th>
+                    <th>Number of Beds (dummy)</th>
+                    <th>affiliatedBookinglink</th>
+                    <th>Guest</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -145,9 +162,9 @@ function listings_page()
                                 <td>
                                     <input type="checkbox" name="selected_listing_id" value="<?php echo esc_attr($listing['id']); ?>">
                                 </td>
-                                <td><?php echo esc_html($listing['title']); ?></td>
-                                <td><?php echo esc_html($listing['description']); ?></td>
-                                <td><?php echo esc_html($listing['price']); ?></td>
+                                <td><?php echo esc_html($listing['numberOfrooms']); ?></td>
+                                <td><?php echo esc_html($listing['numberOfbedrooms']); ?></td>
+                                <td><?php echo esc_html($listing['affiliatedBookinglink']); ?></td>
                                 <td>
                                     <form method="post" action="<?php echo esc_url(admin_url('admin.php?page=listings')); ?>">
                                         <input type="hidden" name="listing_id" value="<?php echo esc_attr($listing['id']); ?>">
@@ -180,7 +197,7 @@ function insert_listing($data)
     $wpdb->insert(
         $table_name,
         $data,
-        array('%s', '%s', '%f')
+        array('%s', '%s', '%f','%s', '%s', '%s', '%s', '%f')
     );
 }
 
@@ -227,3 +244,13 @@ function delete_listing($listing_id)
     );
 }
 
+
+// Step 2: Enqueue scripts and styles for the submenu
+function listings_submenu_scripts()
+{
+    // Enqueue CSS file
+    wp_enqueue_style('listings-submenu-style', plugin_dir_url(__FILE__) . 'assets/my-css.css');
+
+    // Enqueue JavaScript file
+    wp_enqueue_script('listings-submenu-script', plugin_dir_url(__FILE__) . 'assests/custom-js.js', array('jquery'));
+}
